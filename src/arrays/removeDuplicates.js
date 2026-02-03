@@ -17,7 +17,4 @@ const removeDuplicates = (nums) => {
   return nums.length;
 };
 
-const nums = [1, 1, 2, 3];
-console.log(removeDuplicates(nums));
-
 export { removeDuplicates };
