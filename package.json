@@ -1,10 +1,13 @@
 {
   "name": "playground",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "node --watch ./index.js",
+    "test:watch": "node --test --watch",
+    "test": "node --test"
   },
   "author": "",
   "license": "ISC",

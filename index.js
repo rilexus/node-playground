@@ -1,3 +1,5 @@
+import "./src/arrays/index.js";
+
 (() => {
   Array.prototype.swap = function (i, j) {
     if (i > this.length - 1) {
@@ -74,5 +76,3 @@
     return sort(this);
   };
 })();
-
-
