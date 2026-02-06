@@ -1,4 +1,6 @@
 import "./src/arrays/index.js";
+import "./src/linked-list/index.js";
+import "./src/sorting/index.js";
 
 (() => {
   Array.prototype.swap = function (i, j) {

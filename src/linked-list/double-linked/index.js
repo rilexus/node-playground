@@ -10,11 +10,16 @@ class Node {
   setNext(node) {
     this.next = node;
   }
+
+  setPrev(node) {
+    this.prev = node;
+  }
 }
 
-class List {
+export class List {
   head = null;
-  last = null;
+  tail = null;
+  size = 0;
 
   /**
    * Adds a new node with the given value to the end of the list
@@ -26,11 +31,13 @@ class List {
 
     if (!this.head) {
       this.head = newNode;
-      this.last = newNode;
+      this.tail = newNode;
     } else {
-      this.last.next = newNode;
-      this.last = newNode;
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
+
+    this.size += 1;
 
     return this;
   }
@@ -64,4 +71,42 @@ class List {
 
     return reversedList;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.size) {
+      return;
+    }
+
+    let current = this.head;
+    for (let i = 0; i < index; ++i) {
+      current = current.next;
+    }
+
+    return current.value;
+  }
+
+  static fromArray(array) {
+    const l = new List();
+    for (let i = 0; i < array.length; ++i) {
+      l.add(array[i]);
+    }
+
+    return l;
+  }
+
+  addAtHead(val) {
+    const newNode = new Node(val);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.size++;
+    return this;
+  }
+
+  addAtTail(val) {
+    return this.add(val);
+  }
+
+  addAtIndex(index, val) {}
+
+  deleteAtIndex(index) {}
 }
